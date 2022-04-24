@@ -39,11 +39,6 @@ namespace SiparisListesi
                 }
 
             }
-
-            //string[] kitaplar = new string[kitaplistesi_checkbox.CheckedItems.Count];
-            //kitaplistesi_checkbox.CheckedItems.CopyTo(kitaplar,0);
-
-            //siparislistesi_listbox.Items.AddRange(kitaplar);
         }
 
         private void son_button_Click(object sender, EventArgs e)
