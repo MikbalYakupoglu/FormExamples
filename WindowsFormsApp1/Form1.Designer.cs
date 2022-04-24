@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace IdealKiloHesabi
 {
     partial class Form1
     {
