@@ -23,8 +23,8 @@ namespace ScrollBarRenkDegistirme
             label8.BackColor = Color.Green;
             label9.BackColor = Color.Blue;
 
-            label10.BackColor = Color.Red;
-            label11.BackColor = Color.Green;
+            label10.BackColor = Color.Green;
+            label11.BackColor = Color.Red;
             label12.BackColor = Color.Blue;
 
             hScrollBar1.Value = 0;
