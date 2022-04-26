@@ -47,6 +47,18 @@ namespace BirimDonusturme
             basinc2_combobox.SelectedIndex = 0;
         }
 
+        private bool IsContainsLetter(string text)
+        {
+            foreach (var karakter in text)
+            {
+                if (char.IsLetter(karakter))
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
 
         private void uzunluguhesapla()
         {
@@ -57,64 +69,74 @@ namespace BirimDonusturme
             else
             {
                 double ilkuzunlugunmetrekarsiligi = 0;
-                double ilksayi = double.Parse(textBox1.Text);
 
-                if (uzunluk1_combobox.SelectedItem == metre)
+                if (IsContainsLetter(textBox1.Text))
                 {
-                    ilkuzunlugunmetrekarsiligi = ilksayi * 1;
+                    MessageBox.Show("Çevirmek İçin Sayı Değer Giriniz.");
                 }
-                else if (uzunluk1_combobox.SelectedItem == inch)
+                else
                 {
-                    ilkuzunlugunmetrekarsiligi = ilksayi * 0.0254;
-                }
-                else if (uzunluk1_combobox.SelectedItem == foot)
-                {
-                    ilkuzunlugunmetrekarsiligi = ilksayi * 0.3048;
-                }
-                else if (uzunluk1_combobox.SelectedItem == yard)
-                {
-                    ilkuzunlugunmetrekarsiligi = ilksayi * 0.9144;
-                }
-                else if (uzunluk1_combobox.SelectedItem == karamili)
-                {
-                    ilkuzunlugunmetrekarsiligi = ilksayi * 1609.3472187;
+                    double ilksayi = double.Parse(textBox1.Text);
+
+                    if (uzunluk1_combobox.SelectedItem == metre)
+                    {
+                        ilkuzunlugunmetrekarsiligi = ilksayi * 1;
+                    }
+                    else if (uzunluk1_combobox.SelectedItem == inch)
+                    {
+                        ilkuzunlugunmetrekarsiligi = ilksayi * 0.0254;
+                    }
+                    else if (uzunluk1_combobox.SelectedItem == foot)
+                    {
+                        ilkuzunlugunmetrekarsiligi = ilksayi * 0.3048;
+                    }
+                    else if (uzunluk1_combobox.SelectedItem == yard)
+                    {
+                        ilkuzunlugunmetrekarsiligi = ilksayi * 0.9144;
+                    }
+                    else if (uzunluk1_combobox.SelectedItem == karamili)
+                    {
+                        ilkuzunlugunmetrekarsiligi = ilksayi * 1609.3472187;
+                    }
+
+                    double sonuc = 0;
+
+                    if (uzunluk2_combobox.SelectedItem == metre)
+                    {
+                        sonuc = ilkuzunlugunmetrekarsiligi * 1;
+                        textBox2.Text = sonuc.ToString();
+                    }
+                    else if (uzunluk2_combobox.SelectedItem == inch)
+                    {
+                        sonuc = ilkuzunlugunmetrekarsiligi * 39.37007874;
+                        textBox2.Text = sonuc.ToString();
+                    }
+                    else if (uzunluk2_combobox.SelectedItem == foot)
+                    {
+                        sonuc = ilkuzunlugunmetrekarsiligi * 3.280839895;
+                        textBox2.Text = sonuc.ToString();
+                    }
+                    else if (uzunluk2_combobox.SelectedItem == yard)
+                    {
+                        sonuc = ilkuzunlugunmetrekarsiligi * 1.0936132983;
+                        textBox2.Text = sonuc.ToString();
+                    }
+                    else if (uzunluk2_combobox.SelectedItem == karamili)
+                    {
+                        sonuc = ilkuzunlugunmetrekarsiligi * 0.0006213699;
+                        textBox2.Text = sonuc.ToString();
+                    }
+
+
+                    if (sonuc - (int)(sonuc + 0.001) < 0.00005)
+                    {
+                        int yenisonuc = (int)(sonuc + 0.001);
+
+                        textBox2.Text = yenisonuc.ToString();
+                    }
                 }
 
-                double sonuc = 0;
-
-                if (uzunluk2_combobox.SelectedItem == metre)
-                {
-                    sonuc = ilkuzunlugunmetrekarsiligi * 1;
-                    textBox2.Text = sonuc.ToString();
-                }
-                else if (uzunluk2_combobox.SelectedItem == inch)
-                {
-                    sonuc = ilkuzunlugunmetrekarsiligi * 39.37007874;
-                    textBox2.Text = sonuc.ToString();
-                }
-                else if (uzunluk2_combobox.SelectedItem == foot)
-                {
-                    sonuc = ilkuzunlugunmetrekarsiligi * 3.280839895;
-                    textBox2.Text = sonuc.ToString();
-                }
-                else if (uzunluk2_combobox.SelectedItem == yard)
-                {
-                    sonuc = ilkuzunlugunmetrekarsiligi * 1.0936132983;
-                    textBox2.Text = sonuc.ToString();
-                }
-                else if (uzunluk2_combobox.SelectedItem == karamili)
-                {
-                    sonuc = ilkuzunlugunmetrekarsiligi * 0.0006213699;
-                    textBox2.Text = sonuc.ToString();
-                }
-
-
-                if (sonuc - (int) (sonuc + 0.001) < 0.00005)
-                {
-                    int yenisonuc = (int) (sonuc + 0.001);
-                    
-                    textBox2.Text = yenisonuc.ToString();
-                }
+               
             }
             
         }
@@ -161,56 +183,64 @@ namespace BirimDonusturme
             else
             {
                 double ilkgucunkgfkarsiligi = 0;
-                double ilksayi = double.Parse(textBox4.Text);
 
-                
-                if (guc1_combobox.SelectedItem == kgf)
+                if (IsContainsLetter(textBox4.Text))
                 {
-                    ilkgucunkgfkarsiligi = ilksayi * 1;
+                    MessageBox.Show("Çevirmek İçin Sayı Değer Giriniz.");
                 }
-                else if (guc1_combobox.SelectedItem == kw)
+                else
                 {
-                    ilkgucunkgfkarsiligi = ilksayi * 102.0408;
-                }
-                else if (guc1_combobox.SelectedItem == kcal)
-                {
-                    ilkgucunkgfkarsiligi = ilksayi * 427.3504;
-                }
-                else if (guc1_combobox.SelectedItem == PS)
-                {
-                    ilkgucunkgfkarsiligi = ilksayi * 75.18796;
-                }
+                    double ilksayi = double.Parse(textBox4.Text);
 
-                double sonuc = 0;
+                    if (guc1_combobox.SelectedItem == kgf)
+                    {
+                        ilkgucunkgfkarsiligi = ilksayi * 1;
+                    }
+                    else if (guc1_combobox.SelectedItem == kw)
+                    {
+                        ilkgucunkgfkarsiligi = ilksayi * 102.0408;
+                    }
+                    else if (guc1_combobox.SelectedItem == kcal)
+                    {
+                        ilkgucunkgfkarsiligi = ilksayi * 427.3504;
+                    }
+                    else if (guc1_combobox.SelectedItem == PS)
+                    {
+                        ilkgucunkgfkarsiligi = ilksayi * 75.18796;
+                    }
 
-                if (guc2_combobox.SelectedItem == kgf)
-                {
-                    sonuc = ilkgucunkgfkarsiligi * 1;
-                    textBox3.Text = sonuc.ToString();
-                }
-                else if (guc2_combobox.SelectedItem == kw)
-                {
-                    sonuc = ilkgucunkgfkarsiligi * 0.0098;
-                    textBox3.Text = sonuc.ToString();
-                }
-                else if (guc2_combobox.SelectedItem == kcal)
-                {
-                    sonuc = ilkgucunkgfkarsiligi * 0.00234;
-                    textBox3.Text = sonuc.ToString();
-                }
-                else if (guc2_combobox.SelectedItem == PS)
-                {
-                    sonuc = ilkgucunkgfkarsiligi * 0.0133;
-                    textBox3.Text = sonuc.ToString();
-                }
+                    double sonuc = 0;
+
+                    if (guc2_combobox.SelectedItem == kgf)
+                    {
+                        sonuc = ilkgucunkgfkarsiligi * 1;
+                        textBox3.Text = sonuc.ToString();
+                    }
+                    else if (guc2_combobox.SelectedItem == kw)
+                    {
+                        sonuc = ilkgucunkgfkarsiligi * 0.0098;
+                        textBox3.Text = sonuc.ToString();
+                    }
+                    else if (guc2_combobox.SelectedItem == kcal)
+                    {
+                        sonuc = ilkgucunkgfkarsiligi * 0.00234;
+                        textBox3.Text = sonuc.ToString();
+                    }
+                    else if (guc2_combobox.SelectedItem == PS)
+                    {
+                        sonuc = ilkgucunkgfkarsiligi * 0.0133;
+                        textBox3.Text = sonuc.ToString();
+                    }
 
 
-                if (sonuc - (int)(sonuc + 0.001) < 0.00005)
-                {
-                    int yenisonuc = (int)(sonuc + 0.001);
+                    if (sonuc - (int)(sonuc + 0.001) < 0.00005)
+                    {
+                        int yenisonuc = (int)(sonuc + 0.001);
 
-                    textBox3.Text = yenisonuc.ToString();
+                        textBox3.Text = yenisonuc.ToString();
+                    }
                 }
+               
             }
         }
 
@@ -250,47 +280,57 @@ namespace BirimDonusturme
             else
             {
                 double ilkbasincinatmkarsiligi = 0;
-                double ilksayi = double.Parse(textBox6.Text);
 
-
-                if (basinc1_combobox.SelectedItem == atm)
+                if (IsContainsLetter(textBox6.Text))
                 {
-                    ilkbasincinatmkarsiligi = ilksayi * 1;
-                }
-                else if (basinc1_combobox.SelectedItem == psi)
-                {
-                    ilkbasincinatmkarsiligi = ilksayi * 0.06825;
-                }
-                else if (basinc1_combobox.SelectedItem == bar)
-                {
-                    ilkbasincinatmkarsiligi = ilksayi * 0.99;
+                    MessageBox.Show("Çevirmek İçin Sayı Değer Giriniz.");
                 }
 
-                double sonuc = 0;
-
-                if (basinc2_combobox.SelectedItem == atm)
+                else
                 {
-                    sonuc = ilkbasincinatmkarsiligi * 1;
-                    textBox5.Text = sonuc.ToString();
-                }
-                else if (basinc2_combobox.SelectedItem == psi)
-                {
-                    sonuc = ilkbasincinatmkarsiligi * 14.65;
-                    textBox5.Text = sonuc.ToString();
-                }
-                else if (basinc2_combobox.SelectedItem == bar)
-                {
-                    sonuc = ilkbasincinatmkarsiligi * 1.01;
-                    textBox5.Text = sonuc.ToString();
-                }
+                    double ilksayi = double.Parse(textBox6.Text);
 
 
-                if (sonuc - (int)(sonuc + 0.001) < 0.00005)
-                {
-                    int yenisonuc = (int)(sonuc + 0.001);
+                    if (basinc1_combobox.SelectedItem == atm)
+                    {
+                        ilkbasincinatmkarsiligi = ilksayi * 1;
+                    }
+                    else if (basinc1_combobox.SelectedItem == psi)
+                    {
+                        ilkbasincinatmkarsiligi = ilksayi * 0.06825;
+                    }
+                    else if (basinc1_combobox.SelectedItem == bar)
+                    {
+                        ilkbasincinatmkarsiligi = ilksayi * 0.99;
+                    }
 
-                    textBox5.Text = yenisonuc.ToString();
+                    double sonuc = 0;
+
+                    if (basinc2_combobox.SelectedItem == atm)
+                    {
+                        sonuc = ilkbasincinatmkarsiligi * 1;
+                        textBox5.Text = sonuc.ToString();
+                    }
+                    else if (basinc2_combobox.SelectedItem == psi)
+                    {
+                        sonuc = ilkbasincinatmkarsiligi * 14.65;
+                        textBox5.Text = sonuc.ToString();
+                    }
+                    else if (basinc2_combobox.SelectedItem == bar)
+                    {
+                        sonuc = ilkbasincinatmkarsiligi * 1.01;
+                        textBox5.Text = sonuc.ToString();
+                    }
+
+
+                    if (sonuc - (int)(sonuc + 0.001) < 0.00005)
+                    {
+                        int yenisonuc = (int)(sonuc + 0.001);
+
+                        textBox5.Text = yenisonuc.ToString();
+                    }
                 }
+                
             }
         }
 
