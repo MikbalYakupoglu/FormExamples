@@ -13,4 +13,4 @@
 ![scrollbar](https://user-images.githubusercontent.com/95095606/164999021-1e39270a-d19b-488d-86cd-f11754460dce.jpg)
 
 - Sipariş Listesi
-- ![siparislistesi](https://user-images.githubusercontent.com/95095606/164999024-45a6a7d5-77bd-4e6f-b04a-7c5ab55f3a0f.jpg)
+![siparislistesi](https://user-images.githubusercontent.com/95095606/164999024-45a6a7d5-77bd-4e6f-b04a-7c5ab55f3a0f.jpg)
