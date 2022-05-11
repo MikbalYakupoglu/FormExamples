@@ -26,18 +26,23 @@ namespace SiparisListesi
         {
             foreach (var checkedbook in kitaplistesi_checkbox.CheckedItems)
             {
+                if (siparislistesi_listbox.Items.Count == 0)
+                {
+                    siparislistesi_listbox.Items.Add(checkedbook);
+                }
+
                 for (int i = 0; i < siparislistesi_listbox.Items.Count; i++)
                 {
                     if (checkedbook == siparislistesi_listbox.Items[i])
                     {
                         break;
                     }
-                    else if (i == siparislistesi_listbox.Items.Count-1)
+                    if (i == siparislistesi_listbox.Items.Count - 1)
                     {
                         siparislistesi_listbox.Items.Add(checkedbook);
                     }
-                }
 
+                }
             }
         }
 

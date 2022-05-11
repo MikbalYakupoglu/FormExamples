@@ -101,8 +101,6 @@
             // 
             this.siparislistesi_listbox.FormattingEnabled = true;
             this.siparislistesi_listbox.ItemHeight = 16;
-            this.siparislistesi_listbox.Items.AddRange(new object[] {
-            " "});
             this.siparislistesi_listbox.Location = new System.Drawing.Point(473, 128);
             this.siparislistesi_listbox.Name = "siparislistesi_listbox";
             this.siparislistesi_listbox.Size = new System.Drawing.Size(197, 196);
